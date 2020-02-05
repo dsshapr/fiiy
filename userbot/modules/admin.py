@@ -941,14 +941,15 @@ async def _(event):
     """ For .listbot command, list all of the bots of the chat. """
     if event.fwd_from:
         return
-    mentions = "**Bots in this Channel**: \n"
+    info = await event.client.get_entity(event.chat_id)
+    title = info.title if info.title else "this chat"
+    mentions = 'Bots in {}: \n'.format(title)
     input_str = event.pattern_match.group(1)
     to_write_chat = await event.get_input_chat()
     chat = None
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = "Bots in {} channel: \n".format(input_str)
         try:
             chat = await bot.get_entity(input_str)
         except Exception as e:

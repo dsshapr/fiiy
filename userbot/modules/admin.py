@@ -628,16 +628,16 @@ async def _(event):
         should_mention_admins = True
         if event.reply_to_msg_id:
             reply_message = await event.get_reply_message()
-    input_str = event.pattern_match.group(2)
+    masuk = event.pattern_match.group(2)
     to_write_chat = await event.get_input_chat()
     chat = None
-    if not input_str:
+    if not masuk:
         chat = to_write_chat
     else:
-        mentions_heading = "Admins Of {} Group: \n".format(input_str)
+        mentions_heading = "Admins Of {} Group: \n".format(masuk)
         mentions = mentions_heading
         try:
-            chat = await bot.get_entity(input_str)
+            chat = await bot.get_entity(masuk)
         except Exception as e:
             await event.edit(str(e))
             return None

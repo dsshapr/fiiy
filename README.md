@@ -7,7 +7,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this great bot! is click on this CUTE GIRL image below >.<</h5>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/MoveAngel/One4uBot/tree/sql-extended"> <img src="https://i.ibb.co/6XgGwxT/photo-2020-02-01-11-27-40.jpg" alt="Deploy to Heroku" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/MoveAngel/One4uBot/tree/unstables"> <img src="https://i.ibb.co/6XgGwxT/photo-2020-02-01-11-27-40.jpg" alt="Deploy to Heroku" /></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Huge thanks to <a href="https://github.com/MoveAngel/One4uBot/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
@@ -18,4 +18,4 @@
 <p align="center">Also join our <a href="https://t.me/userbotindo">Userbotindo Support Group</a> for help and support!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">License</h2>
-<p align="center"><a href="https://github.com/MoveAngel/One4uBot/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.c, June 2019</p>
+<p align="center"><a href="https://github.com/MoveAngel/One4uBot/blob/unstable/LICENSE">Raphielscape Public License</a> - Version 1.c, June 2019</p>

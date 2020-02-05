@@ -57,7 +57,7 @@ async def upstream(ups):
         )
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
-        repo.create_head('sql-extended', origin.refs.master)
+        repo.create_head('unstable', origin.refs.master)
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name

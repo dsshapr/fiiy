@@ -616,11 +616,13 @@ async def tagaso(event):
         chat, mentions, reply_to=event.message.reply_to_msg_id)
 
 
-@register(outgoing=True, pattern="^.listadmins(?: |$)(.*)")
+@register(outgoing=True, pattern="^.admins(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "**Admins in {} Group**: \n\n"
+    info = await event.client.get_entity(event.chat_id)
+    title = info.title if info.title else "this chat"
+    mentions = '**Admins On {} Group**: \n'.format(title)
     should_mention_admins = False
     reply_message = None
     pattern_match_str = event.pattern_match.group(1)
@@ -634,8 +636,6 @@ async def _(event):
     if not input_str:
         chat = to_write_chat
     else:
-        mentions_heading = "Admins Of {} Group: \n".format(input_str)
-        mentions = mentions_heading
         try:
             chat = await bot.get_entity(input_str)
         except Exception as e:
@@ -762,12 +762,12 @@ async def get_users(show):
     """ For .users command, list all of the users in a chat. """
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "this chat"
-    mentions = 'Users in {}: \n'.format(title)
+    mentions = '**Users in {} Group**: \n'.format(title)
     try:
         if not show.pattern_match.group(1):
             async for user in show.client.iter_participants(show.chat_id):
                 if not user.deleted:
-                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                    mentions += f"\n ⚜️ [{user.first_name}](tg://user?id={user.id}) `{user.id}`"
                 else:
                     mentions += f"\nDeleted Account `{user.id}`"
         else:
@@ -936,14 +936,14 @@ async def get_userdel_from_id(user, event):
 
     return user_obj
 
-@register(outgoing=True, pattern="^.listbot(?: |$)(.*)")
+@register(outgoing=True, pattern="^.bots(?: |$)(.*)")
 async def _(event):
     """ For .listbot command, list all of the bots of the chat. """
     if event.fwd_from:
         return
     info = await event.client.get_entity(event.chat_id)
     title = info.title if info.title else "this chat"
-    mentions = 'Bots in {}: \n'.format(title)
+    mentions = '**Bots in {} Group**: \n'.format(title)
     input_str = event.pattern_match.group(1)
     to_write_chat = await event.get_input_chat()
     chat = None
@@ -989,9 +989,9 @@ CMD_HELP.update({
 \nUsage: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
 \n\n.all\
 \nUsage: Tag all member in the group chat.\
-\n\n.listadmins\
+\n\n.admins\
 \nUsage: Retrieves a list of admins in the chat.\
-\n\n.listbot\
+\n\n.bots\
 \nUsage: Retrieves a list of bots in the chat.\
 \n\n.users or .users <name of member>\
 \nUsage: Retrieves all (or queried) users in the chat.\

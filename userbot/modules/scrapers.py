@@ -37,7 +37,7 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               MaxDownloadsReached, PostProcessingError,
                               UnavailableVideoError, XAttrMetadataError)
 from asyncio import sleep
-from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN
+from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN, bot
 from userbot.events import register
 from telethon.tl.types import DocumentAttributeAudio
 from userbot.modules.upload_download import progress, humanbytes, time_formatter

@@ -8,10 +8,6 @@ from userbot import (CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, TG_GLOBAL_ALBUM_LIMIT, b
 from userbot.events import register
 
 
-def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
-
-
 @register(outgoing=True, pattern="^.gimg(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
@@ -49,8 +45,11 @@ async def _(event):
     await asyncio.sleep(5)
     await event.delete()
 
+def progress(current, total):
+    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
+
 CMD_HELP.update({
-    'google':
+    'gimage':
     '.gimg <search_query>\
         \nUsage: Does an image search on Google and shows 6 images.'
 })

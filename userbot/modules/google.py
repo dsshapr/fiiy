@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from google_images_download import google_images_download
-from userbot import (CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, TG_GLOBAL_ALBUM_LIMIT, bot)
+from userbot import (CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, TG_GLOBAL_ALBUM_LIMIT, LOGS, bot)
 from userbot.events import register
 
 
@@ -27,6 +27,7 @@ async def _(event):
         "output_directory": TEMP_DOWNLOAD_DIRECTORY
     }
     paths = response.download(arguments)
+    LOGS.info(paths)
     lst = paths[0].get(input_str)
     await bot.send_file(
         event.chat_id,
@@ -44,6 +45,8 @@ async def _(event):
     await asyncio.sleep(5)
     await event.delete()
 
+def progress(current, total):
+    LOGS.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 CMD_HELP.update({
     'gimage':

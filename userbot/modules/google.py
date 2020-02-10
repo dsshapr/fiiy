@@ -27,7 +27,6 @@ async def _(event):
         "output_directory": TEMP_DOWNLOAD_DIRECTORY
     }
     paths = response.download(arguments)
-    logger.info(paths)
     lst = paths[0].get(input_str)
     await bot.send_file(
         event.chat_id,
@@ -45,8 +44,6 @@ async def _(event):
     await asyncio.sleep(5)
     await event.delete()
 
-def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 CMD_HELP.update({
     'gimage':

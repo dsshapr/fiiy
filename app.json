@@ -67,6 +67,11 @@
       "value": "/usr/bin/chromium-browser",
       "required": false
     },
+    "TG_GLOBAL_ALBUM_LIMIT": {
+      "description": "How many media should appear when you do a .google image search? (setting a low value recommended)",
+      "value": "6",
+      "required": false
+    },
     "OPEN_WEATHER_MAP_APPID": {
       "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
       "required": false

@@ -212,6 +212,7 @@ COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
+AFK_TIME = {}
 CMD_HELP = {}
 ZALG_LIST = {}
 ISAFK = False

@@ -57,7 +57,7 @@ async def mention_afk(mention):
     current_message_text = mention.message.message.lower()
     if "afk" in current_message_text:
         return False
-    if ISAFK and not (await mention.get_sender()).bot:
+    if USERS and not (await mention.get_sender()).bot:
         if AFK_TIME:
             now = datetime.datetime.now()
             datime_since_afk = now - AFK_TIME

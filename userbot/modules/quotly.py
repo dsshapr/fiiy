@@ -24,9 +24,17 @@ async def _(event):
     await event.edit("```Making a Quote```")
     async with bot.conversation(chat) as conv:
           try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
-              await bot.forward_messages(chat, reply_message)
-              response = await response 
+             message = event.text
+             count = int(message[9:])
+             i = 1
+             async for message in event.client.iter_messages(chat,
+                                                    bot.forward_messages):
+             if i > count + 1:
+               break
+               i = i + 1
+               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
+               await bot.forward_messages(chat, reply_message)
+               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Please unblock @QuotLyBot and try again```")
               return

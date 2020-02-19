@@ -26,6 +26,7 @@ pybase64>=0.4.0
 pyfiglet
 pylast
 pySmartDL
+python==3.8.2.rc2
 python-barcode
 python-dotenv
 youtube-dl

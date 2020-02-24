@@ -2,6 +2,11 @@
 #port to userbot by @afdulfauzan
 
 from telethon.tl import functions, types
+from telethon.tl.functions.channels import EditAdminRequest
+from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
+                               ChatAdminRights, ChatBannedRights,
+                               MessageEntityMentionName, MessageMediaPhoto,
+                               ChannelParticipantsBots)
 from userbot.events import register
 from userbot import CMD_HELP
 
@@ -23,14 +28,27 @@ async def telegraphs(grop):
                     title=group_name
                 ))
                 created_chat_id = result.chats[0].id
-                await grop.client(functions.messages.DeleteChatUserRequest(
-                    chat_id=created_chat_id,
-                    user_id="@MissRose_Bot"
-                ))
+                admin = chat.admin_rights
+                creator = chat.creator
+                rights = ChatAdminRights(
+                                add_admins=True,
+                                invite_users=True,
+                                change_info=True,
+                                ban_users=True,
+                                delete_messages=True,
+                                pin_messages=True)
+                user_id = "@userbotindobot"
+                rank = "Bot"
+                await grop.client(EditAdminRequest(
+                                        created_chat_id,
+                                        user_id, 
+                                        rights,
+                                        rank 
+                                        ))
                 result = await grop.client(functions.messages.ExportChatInviteRequest(
                     peer=created_chat_id,
                 ))
-                await grop.edit("Your `{}` Group Created Successfully. Click [{}]({}) to join".format(group_name, group_name, result.link))
+                await grop.edit("Your {} Group Created Successfully. Click [{}]({}) to join".format(group_name, group_name, result.link))
             except Exception as e:  # pylint:disable=C0103,W0703
                 await grop.edit(str(e))
         elif type_of_group == "g" or type_of_group == "c":
@@ -44,7 +62,7 @@ async def telegraphs(grop):
                 result = await grop.client(functions.messages.ExportChatInviteRequest(
                     peer=created_chat_id,
                 ))
-                await grop.edit("Your `{}` Group/Channel Created Successfully. Click [{}]({}) to join".format(group_name, group_name, result.link))
+                await grop.edit("Your {} Group/Channel Created Successfully. Click [{}]({}) to join".format(group_name, group_name, result.link))
             except Exception as e:  # pylint:disable=C0103,W0703
                 await grop.edit(str(e))
 

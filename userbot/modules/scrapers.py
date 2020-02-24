@@ -145,6 +145,9 @@ async def img_sampler(event):
     # passing the arguments to the function
     paths = response.download(arguments)
     lst = paths[0][query]
+    if len(lst) == 0:
+        await event.delete()
+        return
     await bot.send_file(
         await bot.get_input_entity(event.chat_id), lst)
     shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))

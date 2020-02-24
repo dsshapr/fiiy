@@ -58,7 +58,7 @@ async def telegraphs(grop):
                     about="Welcome to this Channel",
                     megagroup=False if type_of_group == "c" else True
                 ))
-                created_chat_id = r.chats[0].id
+                created_chat_id = result.chats[0].id
                 result = await grop.client(functions.messages.ExportChatInviteRequest(
                     peer=created_chat_id,
                 ))

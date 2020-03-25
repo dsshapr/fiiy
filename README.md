@@ -6,8 +6,8 @@
 <p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
-<h5 align="center">The easiest way to deploy this great bot! is click on this CUTE GIRL image below >.<</h5>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/MoveAngel/One4uBot/tree/sql-extended"> <img src="https://i.ibb.co/6XgGwxT/photo-2020-02-01-11-27-40.jpg" alt="Deploy to Heroku" /></a></p>
+<h5 align="center">To deploy?, just tap on that stupid image quickly dammit</h5>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/tdspya/fiiy/tree/sql-extended"> <img src="https://i.ibb.co/6XgGwxT/photo-2020-02-01-11-27-40.jpg" alt="Deploy to Heroku" /></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Huge thanks to <a href="https://github.com/MoveAngel/One4uBot/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
